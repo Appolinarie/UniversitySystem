@@ -9,17 +9,11 @@ public class Main {
         List<Student> students = new ArrayList<>();
 
 
-        Student student1 = new UndergraduateStudent(
-                1, "Alice", 20, 80
-        );
+        Student student1 = new UndergraduateStudent(1, "Alice", 20, 80);
 
-        Student student2 = new GraduateStudent(
-                2, "John", 25, 90
-        );
+        Student student2 = new GraduateStudent(2, "John", 25, 90);
 
-        Student student3 = new UndergraduateStudent(
-                3, "Peter", 21, 70
-        );
+        Student student3 = new UndergraduateStudent(3, "Peter", 21, 70);
 
 
         students.add(student1);
@@ -27,13 +21,9 @@ public class Main {
         students.add(student3);
 
 
-        Course course1 = new Course(
-                101, "Java Programming", 4
-        );
+        Course course1 = new Course(101, "Java Programming", 4);
 
-        Course course2 = new Course(
-                102, "Database Systems", 3
-        );
+        Course course2 = new Course(102, "Database Systems", 3);
 
 
         course1.enrollStudent(student1);
@@ -43,13 +33,9 @@ public class Main {
         course2.enrollStudent(student3);
 
 
-        Instructor instructor1 = new Instructor(
-                201, "Mr. Peter", "Computer Science"
-        );
+        Instructor instructor1 = new Instructor(201, "Mr. Peter", "Computer Science");
 
-        Instructor instructor2 = new Instructor(
-                202, "Mrs. Alice", "Database Management"
-        );
+        Instructor instructor2 = new Instructor(202, "Mrs. Alice", "Database Management");
 
 
         instructor1.assignCourse(course1);
