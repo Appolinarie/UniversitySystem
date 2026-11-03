@@ -1,29 +1,22 @@
+import java.util.HashSet;
+import java.util.Set;
 
 public abstract class Student {
-
     private int id;
     private String name;
-    private int age;
+    private String email;
+    private Set<Course> enrolledCourses;
 
+    public Student() {
+        this.enrolledCourses = new HashSet<>();
+    }
 
-    public Student(int id, String name, int age) {
+    public Student(int id, String name, String email) {
         this.id = id;
         this.name = name;
-        this.age = age;
+        this.email = email;
+        this.enrolledCourses = new HashSet<>();
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
 
     public int getId() {
         return id;
@@ -33,17 +26,47 @@ public abstract class Student {
         return name;
     }
 
-    public int getAge() {
-        return age;
+    public String getEmail() {
+        return email;
     }
 
 
-    public abstract double calculateGpa();
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+    public Set<Course> getEnrolledCourses() {
+        return enrolledCourses;
+    }
+
+    public void setEnrolledCourses(Set<Course> enrolledCourses) {
+        this.enrolledCourses = enrolledCourses;
+    }
+
+
+    public void enrollCourse(Course course) {
+        enrolledCourses.add(course);
+    }
+
+    public void dropCourse(Course course) {
+        enrolledCourses.remove(course);
+    }
+
+
+    public abstract double calculateGPA();
 
     @Override
     public String toString() {
-        return
-                "ID: " + id + " | Name: " + name + " | Age: " + age + " | GPA: " + calculateGpa();
+        return "ID: " + id + ", Name: " + name + ", Email: " + email + ", Courses Enrolled: " + enrolledCourses.size();
     }
 }

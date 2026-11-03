@@ -1,35 +1,27 @@
 
 public class UndergraduateStudent extends Student {
+    private double ugScoreAverage;
 
-    private double marks;
-
-
-    public UndergraduateStudent(int id, String name,
-                                int age, double marks) {
-        super(id, name, age);
-        this.marks = marks;
+    public UndergraduateStudent(int id, String name, String email, double ugScoreAverage) {
+        super(id, name, email);
+        this.ugScoreAverage = ugScoreAverage;
     }
 
-
-    public void setMarks(double marks) {
-        this.marks = marks;
+    public double getUgScoreAverage() {
+        return ugScoreAverage;
     }
 
-
-    public double getMarks() {
-        return marks;
+    public void setUgScoreAverage(double ugScoreAverage) {
+        this.ugScoreAverage = ugScoreAverage;
     }
-
 
     @Override
-    public double calculateGpa() {
-        return marks / 20;
+    public double calculateGPA() {
+        return (ugScoreAverage / 100.0) * 4.0;
     }
-
 
     @Override
     public String toString() {
-        return
-                super.toString() + " | Marks: " + marks;
+        return "Undergraduate Student [" + super.toString() + ", UG Score Avg: " + ugScoreAverage + "]";
     }
 }
