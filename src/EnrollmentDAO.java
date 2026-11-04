@@ -5,7 +5,7 @@ import java.util.List;
 public class EnrollmentDAO {
 
     public void enrollStudentInCourse(int studentId, int courseId) {
-        String sql = "INSERT INTO enrollments (student_id, course_id) VALUES (?, ?)";
+        String sql = "INSERT INTO Enrollment (student_id, course_id) VALUES (?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, studentId);
@@ -20,9 +20,9 @@ public class EnrollmentDAO {
     public List<String> getStudentsWithCourses() {
         List<String> results = new ArrayList<>();
         String sql = "SELECT s.name AS student_name, c.course_name " +
-                "FROM students s " +
-                "JOIN enrollments e ON s.id = e.student_id " +
-                "JOIN courses c ON e.course_id = c.id";
+                "FROM Student s " +
+                "JOIN Enrollment e ON s.id = e.student_id " +
+                "JOIN Course c ON e.course_id = c.id";
         try (Connection conn = DatabaseConnection.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
